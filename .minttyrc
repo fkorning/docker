@@ -1,0 +1,21 @@
+# mintty term customisations: colours, fonts, locale, keys
+
+Locale=en_GB
+Charset=UTF-8
+
+Term=xterm-256color
+Columns=200
+Rows=34
+Font=Lucida Console
+FontHeight=9
+
+BoldAsFont=yes
+BoldAsColour=yes
+Transparency=off
+OpaqueWhenFocused=yes
+
+BackspaceSendsBS=yes
+CopyAsRTF=no
+TrimSelection=no
+
+BellFlash=yes

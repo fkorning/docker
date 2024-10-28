@@ -1,0 +1,10 @@
+export DOCKER_HOME=c:/work/Docker/Toolbox
+export DOCKER_TOOLBOX_HOME=c:/work/Docker/Toolbox
+export COMPOSE_CONVERT_WINDOWS_PATHS=true
+export DOCKER_HOST=tcp://192.168.99.107:2376
+export DOCKER_MACHINE_NAME=default
+export DOCKER_TLS_VERIFY=1
+export DOCKER_TOOLBOX_INSTALL_PATH=C:/work/Docker/Toolbox
+export DOCKER_DESKTOP_HOME=c:/work/Docker/Docker
+export DOCKER_CERT_PATH=C:/Users/Admin/.docker/machine/machines/default
+export DOCKER_TOOLBOX_CERT_PATH=C:/Users/Admin/.docker/machine/machines/default
