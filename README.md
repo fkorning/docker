@@ -85,6 +85,22 @@ The last Docker Toolbox version is 19.03.1 and dates from 2021
 It runs fine - there are a few configuration caveats to get it to play well
 
 
+
+───────────────────────────────────────────────────────────────────────
+## Preqequisites
+───────────────────────────────────────────────────────────────────────
+
+Make sure you have a *Manufacture* SysWin and CygWin full POSIX system running and installed.
+
+	https://sourceforge.net/p/manufacture/syswin/
+
+	https://sourceforge.net/p/manufacture/cygwin/
+
+Manufacture provides the "su.exe" command to run administrator shells (instead of powershell).
+
+In addition to cygwin, you'll probably have a separate gitbash (installed by DockerToolBox).
+
+
 ───────────────────────────────────────────────────────────────────────
 # GitBash
 ───────────────────────────────────────────────────────────────────────
@@ -98,14 +114,16 @@ Install Git for Windows (GitBash)
     https://gitforwindows.org/
 
 
-
 ───────────────────────────────────────────────────────────────────────
 # Cygwin
 ───────────────────────────────────────────────────────────────────────
 
-A hangup is the need to install WinPTY as the cygwin terminal shell breaks
+A hangup is the need to install WinPTY as the cygwin terminal shell breaks with docker.
 
 See:
+
+	https://stackoverflow.com/questions/48623005/docker-error-on-windows-the-input-device-is-not-a-tty-if-you-are-using-mintty
+
     https://github.com/rprichard/winpty
 
     
