@@ -48,7 +48,7 @@ A while ago, Docker on Windows was done this way via DockerToolBox and KiteMatic
 # Docker Desktop (Ignore this method)
 ───────────────────────────────────────────────────────────────────────
 
-Npw the modern way is Docker Desktop, which runs via WSL on a type-1 Hyper-V machine.
+Now the modern way is Docker Desktop, which runs via WSL on a type-1 Hyper-V machine.
 
 Ignore this - For a variety of reasons, we want to this the old way (while it works).
 
