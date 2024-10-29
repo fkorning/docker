@@ -37,20 +37,20 @@ This is the Docker bit.
 # Docker provisioner
 
 
-This is a bit convoluted. We used to run on a type 2 Hypervisor virtualization VM.
+This is a bit convoluted. We want Docker on a type 2 Hypervisor virtualization VM.
 
-Specifically we want a default Docker Machine provisioned via Vagrant on VirtualBox.
+Specifically we want a default Docker Machine provisioned via on a VirtualBox VM.
 
 A while ago, Docker on Windows was done this way via DockerToolBox and KiteMatic.
 
-This has now been supplanted by Docker Desktop, which runs on a type-1 Hyper-V VM.
-
 
 ───────────────────────────────────────────────────────────────────────
-# Docker Desktop
+# Docker Desktop (Ignore this method)
 ───────────────────────────────────────────────────────────────────────
 
-The modern way is Docker Desktop, which runs via WSL on a HYPER-V machine.
+Npw the modern way is Docker Desktop, which runs via WSL on a type-1 Hyper-V machine.
+
+Ignore this - For a variety of reasons, we want to this the old way (while it works).
 
     https://www.docker.com/products/docker-desktop/
     
@@ -58,7 +58,7 @@ The modern way is Docker Desktop, which runs via WSL on a HYPER-V machine.
 
 
 ───────────────────────────────────────────────────────────────────────
-# Docker Toolbox
+# Docker Toolbox (The Manufakture Way)
 ───────────────────────────────────────────────────────────────────────
 
 However we want to run Docker via Cygwin, and a Docker-Machine on VirtualBox.
@@ -67,7 +67,6 @@ However we want to run Docker via Cygwin, and a Docker-Machine on VirtualBox.
     https://medium.com/@peorth/using-docker-with-virtualbox-and-windows-10-b351e7a34adc
     
     https://medium.com/@peorth/using-docker-with-virtualbox-and-windows-10-part-ii-1071aaea6949
-
 
 
 Docker Toolbox consists of:
@@ -127,7 +126,7 @@ Docker-Toolbox by default runs on gitbash.  This is fine as its terminal works w
 
 To get it to work in cygwin we will have to share keys, certs, config files etc.
 
-Install Git for Windows (GitBash)
+Install Git for Windows aka GitBash (if not already installed)
 
     https://gitforwindows.org/
 
@@ -145,7 +144,7 @@ See:
     https://github.com/rprichard/winpty
 
     
-Build:
+Install Winpty (if not already installed by Manufacture-Cygwin):
     
     cd /usr/local/src/
     
@@ -236,7 +235,7 @@ Upgrade:
 
 For docker to work everywhere, one must pass the docker-machine environment to every shell.
 
-At minimum, share the .docker folder between the gitbash home and the cygwin home
+At minimum, share the .docker folder between the gitbash home and the cygwin home.
 
 * Symlink (or hardlink or junction the following)
 
@@ -274,6 +273,9 @@ For docker to work everywhere, one must pass the docker-machine environment to e
 One must Typically set the docker-machine env in Cygwin bashrc, .bashprofile, or .profile
 
 
+* Edit bash profile and resource scripts
+
+
 /users/${USER}/.profile 
 
     # .profile:  .profile for default docker connection
@@ -284,10 +286,7 @@ One must Typically set the docker-machine env in Cygwin bashrc, .bashprofile, or
     echo exporting docker connection parameters
     eval `docker-machine env default | sed -e 's/\\\/\\//g'`
     env | grep -e DOCKER -e COMPOSE | sed -e 's/\\/\//g' | awk '{ print "export " $1; }' > ~/.docker.bash
-    . ~/.docker.bash
-
-
-    ln -s /users/${USER}/.docker.bash ~/.docker.bash
+    
     
 ~/.profile
 
@@ -309,8 +308,14 @@ One must Typically set the docker-machine env in Cygwin bashrc, .bashprofile, or
     export DOCKER_TOOLBOX_CERT_PATH=C:/Use
 
 
+* Share the Docker Environment
 
-* Login 
+    . ~/.docker.bash
+
+    ln -s /users/${USER}/.docker.bash ~/.docker.bash
+
+
+* Login to Docker
 
     docker login
     
@@ -352,16 +357,14 @@ But one main advantages of a VirtualBox / Vagrant / Docker stack is its command-
 * List VMs :  (the docker vm is "default")
 
     $ vboxmanage list vms
-    "vm-windows-x-build-vbox-x64_default_1610387400276_65028" {eeae1cb0-ee8b-4f33-94cb-159943077dd2}
-    "vm-ubuntu-linux-vbox-x64_default_1680014137575_61868" {3e7e8303-6f8f-4a9c-a20b-5ca3d0f689e4}
-    "ubuntu-focal-manufakture" {052bee7f-c6f4-465b-b03d-18ce1d7f9f79}
-    "minikube" {630dbd90-1ef9-4450-a3ad-513e5bb1e72e}
+    
     "default" {4ac0a965-af82-4524-85c0-adee06c0cb9a}
+
 
 
 * Delete a VM : (unregister, destroy, and delete all files)
 
-	$ vboxmanage unregistervm vmname --delete-all
+	$ vboxmanage unregistervm vnname --delete-all
 
 
 ───────────────────────────────────────────────────────────────────────
