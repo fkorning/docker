@@ -101,9 +101,10 @@ It runs fine - there are a few configuration caveats to get it to play well
 
 * Make sure you have a *Manufacture* SysWin and CygWin full POSIX system running and installed.
 
-	https://sourceforge.net/p/manufacture/syswin/
+	https://sourceforge.net/p/manufacture/syswin/HEAD/tree/trunk/syswin/
 
-	https://sourceforge.net/p/manufacture/cygwin/
+	https://sourceforge.net/p/manufacture/cygwin/HEAD/tree/trunk/cygwin/
+	
 
 Manufacture provides the "su.exe" command to run administrator shells (instead of powershell).
 
