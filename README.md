@@ -1,6 +1,7 @@
 ═══════════════════════════════════════════════════════════════════════
 # Docker
 ═══════════════════════════════════════════════════════════════════════
+
     
 <code> 
 
@@ -22,6 +23,15 @@
                                                                                    
 </code>        
     
+
+The Manufakture box is a lightweight Cloud and Cluster on Windows and full POSIX environment.
+
+It consists: of Syswin, Cygwin, VirtualBox, Vagrant, Docker (Toolbox), Kubernetes (Minikube).
+
+And then a slew of other Development SDKs and tools (Puppet, Perl, Ruby, Python, Java, etc).
+
+This is the Docker bit.
+
 
 
 # Docker provisioner
@@ -90,7 +100,7 @@ It runs fine - there are a few configuration caveats to get it to play well
 ## Preqequisites
 ───────────────────────────────────────────────────────────────────────
 
-Make sure you have a *Manufacture* SysWin and CygWin full POSIX system running and installed.
+* Make sure you have a *Manufacture* SysWin and CygWin full POSIX system running and installed.
 
 	https://sourceforge.net/p/manufacture/syswin/
 
@@ -98,7 +108,15 @@ Make sure you have a *Manufacture* SysWin and CygWin full POSIX system running a
 
 Manufacture provides the "su.exe" command to run administrator shells (instead of powershell).
 
-In addition to cygwin, you'll probably have a separate gitbash (installed by DockerToolBox).
+
+* You will of course have installed VirtualBox and Vagrant.
+
+	https://github.com/fkorning/virtualbox
+	
+	https://github.com/fkorning/vagrant
+	
+	
+* In addition to cygwin, you'll probably have a separate gitbash (installed by DockerToolBox).
 
 
 ───────────────────────────────────────────────────────────────────────
